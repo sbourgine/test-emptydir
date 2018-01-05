@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>support.informatique.fabriquer.realisation</groupId>
+		<artifactId>socle-parent-java</artifactId>
+		<version>1.0.1</version>
+	</parent>
+
+	<groupId>support.informatique.infrastructures.bases-de-donnees</groupId>
+	<artifactId>content-provider-ulis-mobile-tech</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<packaging>jar</packaging>
+	<name>ContentProviderUlisMobile tech</name>
+	<description>ContentProviderUlisMobile Projet racine</description>
+
+	<properties>
+		<!-- Spécifique si projet SVN -->
+		<svn-repo.root>http://svn.groupement.systeme-u.fr/svn/Referentiel_GIE_PROD/Referentiel_su</svn-repo.root>
+		<svn-dir>support/informatique/infrastructures/bases-de-donnees/content-provider-ulis-mobile-tech</svn-dir>
+		<svn-trunk>${svn-dir}/trunk</svn-trunk>
+		<svn-tags>${svn-dir}/tags</svn-tags>
+	</properties>
+
+	<scm>
+		<connection>scm:git:https://github.com/ugieiris/content-provider-ulis-mobile-tech</connection>
+		<developerConnection>scm:git:https://github.com/ugieiris/content-provider-ulis-mobile-tech</developerConnection>
+	</scm>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-release-plugin</artifactId>
+					<configuration>
+						<tagBase>${svn-repo.root}/${svn-tags}</tagBase>
+						<scmCommentPrefix></scmCommentPrefix>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>support.informatique.fabriquer.realisation</groupId>
+				<artifactId>socle-iris-java</artifactId>
+				<version>1.0.0</version>
+				<scope>import</scope>
+				<type>pom</type>
+			</dependency>
+			<dependency>
+				<groupId>support.informatique.fabriquer.realisation</groupId>
+				<artifactId>socle-ext-java</artifactId>
+				<version>1.0.0</version>
+				<scope>import</scope>
+				<type>pom</type>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<dependencies>
+
+		<!--================================================== -->
+		<!-- Tests -->
+		<!--================================================== -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<!-- Declaration de Mockito -->
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-all</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+	</dependencies>
+</project>
